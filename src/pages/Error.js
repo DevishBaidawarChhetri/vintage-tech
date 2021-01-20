@@ -1,10 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Error = () => {
   return (
-    <div>
-      <h1>hello form error page</h1>
-    </div>
+    <section className="error-page section">
+      <div className="error-container">
+        <h1>Oops... dead end.</h1>
+        <Link to="/" className="btn btn-primary">
+          back to home
+        </Link>
+      </div>
+    </section>
   )
 }
 

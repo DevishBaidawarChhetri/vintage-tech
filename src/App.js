@@ -13,9 +13,13 @@ import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import Login from './pages/Login';
 
+// comopnents
+import Header from './components/Header';
+
 const App = () => {
   return (
     <Router>
+      <Header />
       <Switch>
         <Route exact path='/'>
           <Home />
@@ -26,7 +30,7 @@ const App = () => {
         <Route path='/product/'>
           <Products />
         </Route>
-        <Route path='/products/:id' children={<ProductDetails/>}>
+        <Route path='/products/:id' children={<ProductDetails />}>
         </Route>
         <Route path='/cart'>
           <Cart />

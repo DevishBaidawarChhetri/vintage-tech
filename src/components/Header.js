@@ -12,19 +12,13 @@ const Header = () => {
         <ul>
           <div>
             <li>
-              <Link to="/">
-                Home
-              </Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about">
-                About
-              </Link>
+              <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/product">
-                Product
-              </Link>
+              <Link to="/products">Product</Link>
             </li>
           </div>
           <div>

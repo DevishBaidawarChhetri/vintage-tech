@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/cart';
 
 const CartLink = () => {
-  return (
-    <div>
-      <h1>hello from cart link</h1>
-    </div>
-  )
+  const { cartItems } = useContext(CartContext);
+  return <div className="cart-link-container">
+    <Link to="/cart">cart</Link>
+    <span className="cart-link-total">{cartItems}</span>
+  </div>
 }
 
 export default CartLink

@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import ProductList from './ProductList';
 import { ProductContext } from '../../context/products';
-import loading from '../Loading';
 import Loading from '../Loading';
 
 const FeaturedProducts = () => {

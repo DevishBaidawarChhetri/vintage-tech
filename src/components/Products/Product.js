@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 const Product = ({ id, title, price, image }) => {
-  const url = image.url;
+  const url = image.name;
   return (
     <article className="product">
       <div className="img-container">

@@ -14,7 +14,7 @@ const ProductProvider = ({ children }) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`${url}/products`)
+      .get(`${url}/store-apis`)
       .then(response => {
         const featured = featuredProducts(response.data);
         setProducts(response.data);

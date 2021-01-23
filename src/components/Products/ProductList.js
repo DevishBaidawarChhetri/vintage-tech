@@ -8,6 +8,7 @@ const ProductList = ({ title, products }) => {
       <div className="products-center">
         {
           products.map((item) => {
+            // console.table(item);
             return <Product key={item.id} {...item} />
           })
         }

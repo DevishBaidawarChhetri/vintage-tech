@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import loginUser from '../strapi/loginUser';
 import registerUser from '../strapi/registerUser';
+import { UserContext } from '../context/user';
 
 const Login = () => {
   const history = useHistory();
+  const { userLogin, alert, showAlert } = React.useContext(UserContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('default');
   const [isMember, setIsMember] = useState(true);
 
-  let isEmpty = !email || !password || !username;
+  let isEmpty = !email || !password || !username || alert.show;
   const toggleMember = () => {
     setIsMember((prevMember) => {
       let isMember = !prevMember;
@@ -19,6 +21,9 @@ const Login = () => {
     })
   }
   const handleSubmit = async (e) => {
+    showAlert({
+      msg: 'accessing user data... please wait...'
+    })
     e.preventDefault();
     let response;
     if (isMember) {
@@ -27,10 +32,18 @@ const Login = () => {
       response = await registerUser({ email, password, username });
     }
     if (response) {
-      console.log('success');
-      console.log(response);
+      const { jwt: token, user: { username } } = response.data;
+      const newUser = { token, username };
+      userLogin(newUser);
+      showAlert({
+        msg: `you are logged in: ${username}. happy shopping!`
+      });
+      history.push('/products');
     } else {
-
+      showAlert({
+        msg: `there was an error. please try again later.`,
+        type: 'danger'
+      })
     }
   }
 

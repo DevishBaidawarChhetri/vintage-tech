@@ -16,6 +16,7 @@ import Login from './pages/Login';
 // comopnents
 import Header from './components/Header';
 import Alert from './components/Alert';
+import PrivateRoute from './components/PrivateRoute';
 
 const App = () => {
   return (
@@ -37,9 +38,9 @@ const App = () => {
         <Route path='/cart'>
           <Cart />
         </Route>
-        <Route path='/checkout'>
+        <PrivateRoute path='/checkout'>
           <Checkout />
-        </Route>
+        </PrivateRoute>
         <Route path='/login'>
           <Login />
         </Route>

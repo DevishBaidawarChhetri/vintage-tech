@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Checkout = () => {
   return (
@@ -8,4 +8,4 @@ const Checkout = () => {
   )
 }
 
-export default Checkout
+export default Checkout;

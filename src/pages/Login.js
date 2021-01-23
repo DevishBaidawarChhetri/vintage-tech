@@ -41,7 +41,7 @@ const Login = () => {
       history.push('/products');
     } else {
       showAlert({
-        msg: `there was an error. please try again later.`,
+        msg: `email or password incorrect.`,
         type: 'danger'
       })
     }

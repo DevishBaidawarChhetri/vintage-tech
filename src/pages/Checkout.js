@@ -24,7 +24,23 @@ const Checkout = (props) => {
       .catch(e => console.log(e));
     const { token } = response;
     if (token) {
-      console.log(token);
+      setError('');
+      const { id } = token;
+      let order = await submitOrder({
+        name: name,
+        total: total,
+        items: cart,
+        stripeTokenId: id,
+        userToken: user.token
+      })
+      if (order) {
+        showAlert({ msg: 'order completed' });
+        clearCart();
+        history.push('/');
+        return;
+      } else {
+        showAlert({ msg: 'there was an error... please try again', type: 'danger' })
+      }
     } else {
       hideAlert();
       setError(response.error.message);
